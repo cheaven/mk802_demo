@@ -1,0 +1,1 @@
+Copy the scripts folder to the same dir with the program

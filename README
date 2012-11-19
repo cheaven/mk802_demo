@@ -1,0 +1,88 @@
+Demo Applications for MK802 MiniPC
+============================================
+Author: Shikai Chen (A.K.A CSK), csk@live.com, http://www.csksoft.net
+
+
+I. Introductions
+----------------------
+This folder contains all the source code (and the build scripts) of the demo applications for MK802 MiniPC.
+
+The source code can be cross-compiled on a x86 PC (ubuntu 12.04 LTS is recommended). The arm-native build should work but it hasn't been verified it.
+
+Beside the arm target, the code also works on x86 platforms.
+
+Here is a breif introduction of each sub folder(project)'s propourse:
+/-< Project Root>
+ |--- bandwidth     # fetechs network bandwidth data from a DD-WRT router and displays the graphic data on a 128x64 VFD
+ |                  # demo video: http://www.tudou.com/programs/view/oubxw-PhL7s/
+ |
+ |--- cam2vfd       # displays OpenCV processed video captured from a usb webcam on a 128x64 VFD
+ |
+ |--- cam2vfd_fg    # similar with cam2vfd, but the OpenCV's BackgroundSubtractorMOG is used and the foreground mask is displayed. 
+ |
+ |--- facetrack     # controls a camera on a 2-axis PTZ to always track a human face. 
+ |
+ |--- lighttrack    # controls a camera on a 2-axis PTZ to always track a lighting source
+ |
+ |--- opencv_tester # very simple testing program to verfiy the openCV function
+ |
+ |--- simple_serial # very simple testing program to verfiy the VFD driver
+ |
+ |--- common        # supporting libraries
+ |--- utils
+ |--- serialdrv
+ |--- vfd_common
+ |
+ |--- scripts       # building system
+
+II. Cross-compile on a x86 Linux PC
+-----------------------------------
+a. Prerequisite:
+1) arm-gcc (if the targer rootfs is armhf based, please use the armhf-gcc version)
+   You can retrieve one using apt-get on ubuntu :
+   sudo apt-get install gcc-4.6-arm-linux-gnueabi
+   <or> sudo apt-get install gcc-4.6-arm-linux-gnueabihf-* (for armhf rootfs)
+
+2) building system (make, autoconfig, ...)
+   On a ubuntu PC, simply :
+   sudo apt-get install build-essential
+
+3) Opencv 2.3 headers and the compiled lib binaries
+   You can download the OpenCV's source code and cross-compile it yourself, or simply copy them from an arm-ubuntu that OpenCV lib has been installed using apt-get:
+   sudo apt-get install libopencv-dev
+
+b. configure
+   The typical configure/build process is used here. 
+   For cross-compile the code to arm target, the following configure commandline is recommended:
+   ./configure --prefix=<OpenCV header/lib path> --host=<cross compiler prefix>
+   
+   * OpenCV header/lib path:
+   If the OpenCV's header is under ~/opencv2.3/include and the lib binary is under ~/opencv2.3/lib, then the OpenCV header/lib path should be set tp ~/opencv2.3
+   
+   * cross compile prefix:
+   For armel build, using arm-linux-gnueabi, for armhf build, using arm-linux-gnueabihf.
+
+   Here is an example:
+   ./configure --prefix=/media/data-60/src/app-arm-a8/crosscompile_root --host=arm-linux-gnueabihf
+
+   Using the above commandline, the code is ready to be built on a armhf target. The OpenCV lib/header is under /media/data-60/src/app-arm-a8/crosscompile_root
+
+c. Build
+   Simply type make under the project root folder to start the building process.
+
+d. The build result
+   The output binary will be stored in the .output folder under the project root folder.
+
+e. Deploy to the target machine
+   Simply copy the output result (.output/*) to the target machine (i.e. MK802)
+   For projects like facetrack and bandwidth, extral files need to be deployed. Please check the readme file under the sub project folder for details.
+
+III. Native-compile on arm-linux
+-----------------------------------
+   The code should be built using the typical configure-make process. (not verified yet)
+
+IV. More Information
+-----------------------------------
+   There will be a related article describes the details of the source code's usage. Please visit the author's blog: http://www.csksoft.net/blog
+   The article will be published in Chinese version first, English version may be released. If you have further question, contact to the author via emails. :-)
+

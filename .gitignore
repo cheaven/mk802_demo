@@ -1,0 +1,8 @@
+.output/
+.obj/
+Makefile
+Makefile.conf
+*.log
+config.status
+*.o
+*.d
