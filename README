@@ -7,7 +7,7 @@ I. Introductions
 ----------------------
 This folder contains all the source code (and the build scripts) of the demo applications for MK802 MiniPC.
 
-The source code can be cross-compiled on a x86 PC (ubuntu 12.04 LTS is recommended). The arm-native build should work but it hasn't been verified it.
+The source code can be cross-compiled on a x86 PC (ubuntu 12.04 LTS is recommended). The arm-native build should work but it hasn't been verified yet.
 
 Beside the arm target, the code also works on x86 platforms.
 
@@ -17,16 +17,20 @@ Here is a breif introduction of each sub folder(project)'s propourse:
  |                  # demo video: http://www.tudou.com/programs/view/oubxw-PhL7s/
  |
  |--- cam2vfd       # displays OpenCV processed video captured from a usb webcam on a 128x64 VFD
+ |                  # demo video: http://www.tudou.com/programs/view/foI-2HcCcKY/
  |
  |--- cam2vfd_fg    # similar with cam2vfd, but the OpenCV's BackgroundSubtractorMOG is used and the foreground mask is displayed. 
+ |                  # demo video: http://www.tudou.com/programs/view/OCmPiTiK_48/
  |
  |--- facetrack     # controls a camera on a 2-axis PTZ to always track a human face. 
+ |                  # demo video: http://www.tudou.com/programs/view/wvnv7vbJnGU/
  |
  |--- lighttrack    # controls a camera on a 2-axis PTZ to always track a lighting source
+ |                  # demo video: http://www.tudou.com/programs/view/eMv3zLORfDw/
  |
  |--- opencv_tester # very simple testing program to verfiy the openCV function
  |
- |--- simple_serial # very simple testing program to verfiy the VFD driver
+ |--- simple_serial_vfd # very simple testing program to verfiy the VFD driver
  |
  |--- common        # supporting libraries
  |--- utils
@@ -83,6 +87,8 @@ III. Native-compile on arm-linux
 
 IV. More Information
 -----------------------------------
-   There will be a related article describes the details of the source code's usage. Please visit the author's blog: http://www.csksoft.net/blog
-   The article will be published in Chinese version first, English version may be released. If you have further question, contact to the author via emails. :-)
+   There is a related article describes the details of the source code's usage. Please visit the author's blog: http://www.csksoft.net/blog
+   The related article URL: http://www.csksoft.net/blog/post/mk802_dev_intro.html
+   
+   The article is published in Chinese version, English version may be released. If you have further question, contact to the author via emails. :-)
 

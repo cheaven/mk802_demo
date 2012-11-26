@@ -1,7 +1,7 @@
 .output/
 .obj/
-Makefile
-Makefile.conf
+/Makefile
+/Makefile.conf
 *.log
 config.status
 *.o

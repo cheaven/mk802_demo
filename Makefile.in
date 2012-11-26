@@ -6,7 +6,7 @@
 # NOTE: do not alter the order of the folders, they are arranged based on the dependencies
 SUBDIRS:= vfd_comm \
           serialdrv \
-          simple_serial \
+          simple_serial_vfd \
           opencv_tester \
           cam2vfd \
           cam2vfd_fg \
