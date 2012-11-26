@@ -12,7 +12,8 @@ SUBDIRS:= vfd_comm \
           cam2vfd_fg \
           facetrack \
           lighttrack \
-          bandwidth
+          bandwidth \
+          arduino_test
 
 
 .PHONY: all clean install listsubs
